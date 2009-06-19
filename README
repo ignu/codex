@@ -1,0 +1,42 @@
+Useful Libs:
+  git setup
+    http://toolmantim.com/articles/setting_up_a_new_rails_app_with_git
+    
+  gem sources -a http://gems.github.com
+  
+  Spec
+    sudo gem install rspec
+    sudo gem install rspec-rails
+    
+    config.gem "rspec", :lib => false, :version => ">= 1.2.0"
+    config.gem "rspec-rails", :lib => false, :version => ">= 1.2.0"
+    
+    script/generate rspec
+    
+  Shoulda
+    sudo gem install thoughtbot-shoulda
+    config.gem "thoughtbot-shoulda", :lib => "shoulda", :source => "http://gems.github.com"
+    
+  Auth
+    sudo gem install authlogic
+    config.gem "authlogic"
+    http://github.com/binarylogic/authlogic/tree/master
+    
+  Haml (or Haml edge)
+    sudo gem install haml
+    config.gem "haml"
+    OR
+    sudo gem install haml-edge
+    config.gem "haml-edge"
+  
+  Compass
+    sudo gem install chriseppstein-compass
+    
+  Pagination
+    sudo gem install mislav-will_paginate
+    require "will_paginate" 
+    http://github.com/mislav/will_paginate/wikis/installation
+    
+  Heroku
+    sudo gem install heroku
+    http://docs.heroku.com/

@@ -1,0 +1,9 @@
+%h1 Add Some Codez
+%form{:action => self.posts_path, :method => 'post'}
+  %select{:name => 'post[language]'}
+    - Post::LANGUAGES.each do |lang|
+      %option{:value => lang.downcase}= lang
+  %input{:type => 'hidden', :name => 'authenticity_token', :value => self.form_authenticity_token}
+  %input{:type => 'text', :name => 'post[title]', :value => @post.title}
+  %textarea{:name => 'post[body]'}= @post.body
+  %button code!
