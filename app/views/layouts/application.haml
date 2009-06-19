@@ -1,0 +1,13 @@
+!!! Strict
+%html
+  %head
+    = javascript_include_tag 'jquery'
+    = javascript_include_tag 'highlight.pack.js'
+    = javascript_include_tag 'application'
+    = stylesheet_link_tag 'screen.css', :media => 'screen, projection'
+    = stylesheet_link_tag 'highlighting/vs'    
+    /[if IE]
+      = stylesheet_link_tag 'ie.css', :media => 'screen, projection'
+  %body
+    #container
+      = yield
