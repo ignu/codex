@@ -5,6 +5,23 @@ require File.dirname(__FILE__) + "/../config/environment" unless defined?(RAILS_
 require 'spec/autorun'
 require 'spec/rails'
 
+
+module Spec
+  module Rails
+    module Mocks
+     
+    def mock_model_with_errors(klass, stub = {})
+      stub.merge!({:errors => mock('errors', {:full_messages => []})})
+      mock_model_without_errors(klass, stub)
+    end
+
+    alias mock_model_without_errors mock_model
+    alias mock_model mock_model_with_errors
+
+    end
+  end
+end
+
 Spec::Runner.configure do |config|
   # If you're not using ActiveRecord you should remove these
   # lines, delete config/database.yml and disable :active_record
