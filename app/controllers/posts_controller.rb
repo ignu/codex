@@ -12,11 +12,13 @@ class PostsController < ApplicationController
   
   def create
     @post = Post.new(self.params[:post])
+    puts(@post.inspect) 
     @language = Language.find_or_create_by_name(self.params[:language_name])
-
+    puts(@language.inspect)
+    @post.language=(@language)
     @post.save!
     redirect_to post_path(@post)
-  rescue
+  rescue ActiveRecord::RecordInvalid    
     render('new')
   end
 end
