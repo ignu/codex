@@ -50,9 +50,13 @@ describe PostsController do
       @post = mock_model(Post)
       
       Post.should_receive(:new).with(hash_including(:title => 'this', :body => 'that')).and_return(@post)
+
+      @language = mock_model(Language)
+      Language.should_receive(:find_or_create_by_name).with("Ruby").and_return(@language)
+
       @post.should_receive(:save!)
       
-      post(:create, {:post => {:title => 'this', :body => 'that'}})
+      post(:create, {:post => {:title => 'this', :body => 'that'}, :language_name => "Ruby"})
     end
     
     

@@ -12,6 +12,8 @@ class PostsController < ApplicationController
   
   def create
     @post = Post.new(self.params[:post])
+    @language = Language.find_or_create_by_name(self.params[:language_name])
+
     @post.save!
     redirect_to post_path(@post)
   rescue

@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-  LANGUAGES = %w(C# Ruby PHP)
+  self.belongs_to(:language)
   self.validates_presence_of(:title, :body, :language)
   self.has_many(:comments)
 end
