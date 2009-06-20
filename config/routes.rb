@@ -10,6 +10,12 @@ ActionController::Routing::Routes.draw do |map|
     :conditions => {:method => :post}
   })
   
+  map.posts('/posts',{
+    :controller => 'posts',
+    :action     => 'index',
+    :conditions => {:method => :get}
+  })
+  
   map.new_post('/posts/new', {
     :controller => 'posts',
     :action     => 'new',
