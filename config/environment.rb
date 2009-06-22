@@ -22,9 +22,10 @@ Rails::Initializer.run do |config|
   
   config.gem "rspec", :lib => false, :version => ">= 1.2.0"
   config.gem "rspec-rails", :lib => false, :version => ">= 1.2.0"
-  config.gem 'thoughtbot-shoulda', :lib => false
+  config.gem 'thoughtbot-shoulda', :lib => false, :source=>"http://gems.github.com"
   config.gem 'haml-edge', :lib => 'haml'
-  config.gem 'chriseppstein-compass', :lib => 'compass'
+  config.gem 'chriseppstein-compass', :lib => 'compass', :source=>"http://gems.github.com"
+  config.gem 'authlogic', :lib => false
   
 
   # Only load the plugins named here, in the order given (default is alphabetical).

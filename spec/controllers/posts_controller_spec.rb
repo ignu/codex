@@ -55,7 +55,7 @@ describe PostsController do
 
     it { should assign_to(:post) }
     it { should respond_with(:redirect) }
-
+    
   end
   
   describe "create, with invalid data" do

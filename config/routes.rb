@@ -33,4 +33,21 @@ ActionController::Routing::Routes.draw do |map|
     :action     => 'create',
     :conditions => {:method => :post}
   })
+
+  map.users('/users/new', {
+    :controller => 'users',
+    :action => 'new'
+  });
+
+  map.users('/users/create', {
+    :controller => 'users',
+    :action => 'create',
+    :conditions => {:method=>:post}
+  });
+  
+  map.user_session('/login',{
+    :controller => 'user_sessions',
+    :action => 'new'
+  })
+  
 end

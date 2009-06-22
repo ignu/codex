@@ -1,0 +1,34 @@
+#register
+  %h1 Register
+  .errors
+    =error_messages_for :user
+  
+  %form{:action => self.users_path, :method => 'post'}
+    %input{:type => 'hidden', :name => 'authenticity_token', :value => self.form_authenticity_token}
+
+      .user_name
+        %label User Name:
+        %input{:type => 'text', :name=>'user[login]'}
+      
+      .first_name
+        %label First Name:
+        %input{:type => 'text', :name=>'user[first_name]'}
+
+      .last_name
+        %label Last Name:
+        %input{:type => 'text', :name=>'user[last_name]'}
+
+      .email
+        %label Email:
+        %input{:type => 'text', :name=>'user[email]'}
+
+      .password
+        %label Password
+        %input{:type=> 'password', :name=>'user[password]'}
+
+      .verify                              
+        %label Password Confirmation
+        %input{:type=> 'password', :name=>'user[password_confirmation]'}
+    
+
+    %button register
