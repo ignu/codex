@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_filter :require_user
+  
   def show
     @post = Post.find(params[:id])
     @comment = @post.comments.build

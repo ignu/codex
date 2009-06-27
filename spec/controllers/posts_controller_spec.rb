@@ -1,8 +1,14 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe PostsController do
+
+  before(:each) do
+    login
+  end
+
   describe "show, with valid id" do
-    before(:each) do
+
+    before(:each) do  
       post = mock_model(Post)
       comments = mock_model(Array)
       comment  = mock_model(Comment)
@@ -16,13 +22,14 @@ describe PostsController do
     it { should assign_to(:comment)        }
     it { should render_template('show')    }
     it { should respond_with(:success)     }
+
   end
   
   describe "show, with invalid id" do
+
     before(:each) do
       Post.should_receive(:find).with("1").and_raise(ActiveRecord::RecordNotFound)
       rescue_action_in_public!
-      
       get 'show', {:id => 1}
     end
     
@@ -31,8 +38,9 @@ describe PostsController do
     it { should respond_with(:not_found)    }
     
   end
-  
+
   describe "new" do
+
     before(:each) do
       post = mock_model(Post)
       Post.should_receive(:new).and_return(post)
@@ -51,6 +59,7 @@ describe PostsController do
       Post.should_receive(:new).with(hash_including(@params)).and_return(@post)
       @post.should_receive(:save!)
       post(:create, {:post => @params})
+
     end
 
     it { should assign_to(:post) }
