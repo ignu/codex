@@ -92,7 +92,8 @@ describe PostsController, "routing" do
     params_from(:get, "/posts/new").should == {:controller => 'posts', :action => 'new'}
   end
   
-  it "new_post_path should return /posts/new" do
+  it "new_post_path should return /posts/new"  do
     new_post_path.should == '/posts/new'
   end
+
 end

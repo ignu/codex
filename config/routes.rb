@@ -45,9 +45,15 @@ ActionController::Routing::Routes.draw do |map|
     :conditions => {:method=>:post}
   });
 
+  map.users('/users/login', {
+    :controller => 'user_sessions',
+    :action => 'new',
+    :conditions => {:method=>:get}
+  });
+
   map.resource :user_session
-  
-  map.user_session('/login',{
+
+  map.user_sessions('/login',{
     :controller => 'user_sessions',
     :action => 'new'
   })
