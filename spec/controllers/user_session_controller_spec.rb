@@ -15,8 +15,12 @@ end
 
 describe UserSessionsController, "routing" do
 
-  it "connect /login to new" do
+  it "connects /login to new" do
     params_from(:get, "/login").should == {:controller => 'user_sessions', :action => 'new'}
+  end
+
+  it "connects /login to new" do
+    params_from(:post, "/login").should == {:controller => 'user_sessions', :action => 'new'}
   end
 
 end
