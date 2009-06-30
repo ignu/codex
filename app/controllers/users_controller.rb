@@ -7,8 +7,8 @@ class UsersController < ApplicationController
     @user = User.new self.params[:user]
     @user.save!
     self.render(:create)
-    rescue ActiveRecord::RecordInvalid    
-	render('new')
+    rescue ActiveRecord::RecordInvalid
+    render('new')
   end
 
 end

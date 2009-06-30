@@ -84,6 +84,7 @@ describe PostsController do
 end
 
 describe PostsController, "routing" do
+
   it "connects the root of the site to new" do
     params_from(:get, "/").should == {:controller => 'posts', :action => 'new'}
   end

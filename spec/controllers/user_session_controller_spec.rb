@@ -7,8 +7,8 @@ describe UserSessionsController do
   end
   
   describe "when creating a new session" do
-    it { should render_template('new')    }
-    it { should respond_with(:success)     }
+    it { should render_template('new') }
+    it { should respond_with(:success) }
   end
   
 end
