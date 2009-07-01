@@ -9,6 +9,7 @@
     /[if IE]
       = stylesheet_link_tag 'ie.css', :media => 'screen, projection'
   %body
-    .notice=flash[:notice]
+    -if flash[:notice]
+      .notice=flash[:notice]
     #container
       = yield

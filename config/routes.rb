@@ -49,7 +49,8 @@ ActionController::Routing::Routes.draw do |map|
 
   map.user_sessions('/login',{
     :controller => 'user_sessions',
-    :action => 'new'
+    :action => 'new', 
+    :conditions => {:method=>:get }
   })
 
    map.user_sessions('/login',{
