@@ -9,6 +9,7 @@ describe Post do
    it { should validate_presence_of(:language)  }   
    it { should have_many(:comments)}
    it { should belong_to(:language) }
+   it { should belong_to(:user) }
 
   describe "when setting the language" do
 
