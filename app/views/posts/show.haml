@@ -1,7 +1,9 @@
 %h1= @post.title
+.details= "posted by " +  @post.user.first_name + " " + @post.user.last_name
 #code
   %pre
     %code{:class => @post.language}=@post.body
+
 
 #comments
   = render('/comments/comment', :collection => @post.comments)
