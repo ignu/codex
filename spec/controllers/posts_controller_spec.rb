@@ -57,6 +57,7 @@ describe PostsController do
       @params = {:title => 'this', :body => 'that', :language_name => "Ruby"}
       @post = mock_model(Post)
       Post.should_receive(:new).with(hash_including(@params)).and_return(@post)
+      @post.should_receive(:user=)
       @post.should_receive(:save!)
       post(:create, {:post => @params})
 
@@ -70,7 +71,8 @@ describe PostsController do
   describe "create, with invalid data" do
     before(:each) do
       @post = mock_model(Post)
-      Post.should_receive(:new).with(hash_including(:body => 'that')).and_return(@post)            
+      Post.should_receive(:new).with(hash_including(:body => 'that')).and_return(@post)
+      @post.should_receive(:user=)
       @post.should_receive(:save!).and_raise(ActiveRecord::RecordInvalid.new(@post))
       post(:create, {:post => {:body  => 'that', :title => 'this'}})
     end
@@ -78,7 +80,7 @@ describe PostsController do
     it { should assign_to(:post)      }
     it { should render_template(:new) }
     it { should respond_with(200)     }
-    
+
   end
 
 end

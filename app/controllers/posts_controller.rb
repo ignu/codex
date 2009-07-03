@@ -14,6 +14,7 @@ class PostsController < ApplicationController
   
   def create
     @post = Post.new(self.params[:post])    
+    @post.user = current_user    
     @post.save!
     redirect_to post_path(@post)
   rescue ActiveRecord::RecordInvalid    
