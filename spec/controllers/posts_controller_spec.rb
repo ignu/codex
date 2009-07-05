@@ -3,7 +3,7 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 describe PostsController do
 
   before(:each) do
-    login({:record=>mock_model(User)})
+    login
   end
 
   describe "show, with valid id" do
