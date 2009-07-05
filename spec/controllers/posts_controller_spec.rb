@@ -3,7 +3,7 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 describe PostsController do
 
   before(:each) do
-    login
+    login({:record=>mock_model(User)})
   end
 
   describe "show, with valid id" do
@@ -65,7 +65,6 @@ describe PostsController do
 
     it { should assign_to(:post) }
     it { should respond_with(:redirect) }
-    
   end
   
   describe "create, with invalid data" do
@@ -94,6 +93,17 @@ describe PostsController, "routing" do
   it "connect /posts/new to new" do 
     params_from(:get, "/posts/new").should == {:controller => 'posts', :action => 'new'}
   end
+
+
+  #it "connects /posts/show/:id to posts.show" do
+  #  params_from(:get, "/posts/show/1").should == {:controller => 'posts', :action => 'show', :id=>1}
+  #end
+
+  #it "connect /posts/user/:username to posts.user" do
+  #  params_from(:get, "/posts/user/ignu").should == {
+  #          :controller => 'posts',
+  #          :action=> 'user'}
+  #end
   
   it "new_post_path should return /posts/new"  do
     new_post_path.should == '/posts/new'
