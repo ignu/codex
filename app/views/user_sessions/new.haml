@@ -6,11 +6,15 @@
 %form{:action => self.user_sessions_path, :method => 'post'}
 
   %input{:type => 'hidden', :name => 'authenticity_token', :value => self.form_authenticity_token}
-  
-  %label Login:
-  %input{:type => 'text', :name=>'user_session[login]'}
 
-  %label Password:
-  %input{:type => 'text', :name=>'user_session[password]'}
+  #username-label
+    %label Login:
+  #username
+    %input{:type => 'text', :name=>'user_session[login]'}
+
+  #password-label
+    %label Password:
+  #password
+    %input{:type => 'password', :name=>'user_session[password]'}
 
   %input{:type => 'submit', :value=>'Submit'}

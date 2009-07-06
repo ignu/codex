@@ -59,4 +59,9 @@ ActionController::Routing::Routes.draw do |map|
     :conditions => {:method=>:post}
   })
 
+   map.user_sessions('/logout',{
+    :controller => 'user_sessions',
+    :action => 'destroy'    
+  })
+
 end

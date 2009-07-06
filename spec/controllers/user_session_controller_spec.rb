@@ -23,4 +23,8 @@ describe UserSessionsController, "routing" do
     params_from(:post, "/login").should == {:controller => 'user_sessions', :action => 'create'}
   end
 
+it "connects /logout to destroy" do
+    params_from(:post, "/logout").should == {:controller => 'user_sessions', :action => 'destroy'}
+  end
+
 end
